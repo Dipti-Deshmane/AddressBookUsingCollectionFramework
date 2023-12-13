@@ -17,8 +17,15 @@ public class AddressBook {
     }
 
     public void addPerson(Person person) {
-
+        for (Person p : contacts) {
+            if (p.getName().equals(person.getName()) && p.getPhoneNumber().equals(person.getPhoneNumber())) {
+                System.out.println("Person " + person.getName() + " already exists in the Address Book.");
+                return;
+            }
+        }
         contacts.add(person);
+        System.out.println("Person " + person.getName() + " added to Address Book " + name);
+
     }
 
     public void display() {
